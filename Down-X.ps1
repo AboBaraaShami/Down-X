@@ -87,7 +87,7 @@ function Get_Geo{
 }
 function StartOn($num){
 	$num1 = $num -1 ;
-	$filename = "C:\Users\Public\tmp";
+	$filename = "C:\Users\" + $env:Username + "\tmp";
 	$exists = Test-Path $filename;
 	if ($exists -eq $false){
 		Set-Content $filename 1;
