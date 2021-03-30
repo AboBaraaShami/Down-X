@@ -1,5 +1,5 @@
 # Functions #
-$curl = "C:\Windows\System32\curl.exe"
+$curl = "C:\Users\Public\curl.exe"
 function Request($url){
 	$string = cmd.exe /c $curl $url -s -k;
 	return [string]$string;
